@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Swifty
 //
 //  Created by 김수아 on 2023/07/28.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
+    @ObservedObject var viewModel: MainViewModel
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,8 +21,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let viewModel = MainViewModel(state: State())
+        
+        MainView(viewModel: viewModel)
     }
 }
